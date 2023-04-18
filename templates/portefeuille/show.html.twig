@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Portefeuille{% endblock %}
+
+{% block body %}
+    <h1>Portefeuille</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ portefeuille.id }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_portefeuille_index') }}">back to list</a>
+
+    <a href="{{ path('app_portefeuille_edit', {'id': portefeuille.id}) }}">edit</a>
+
+    {{ include('portefeuille/_delete_form.html.twig') }}
+{% endblock %}

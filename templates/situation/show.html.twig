@@ -1,0 +1,34 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Situation{% endblock %}
+
+{% block body %}
+    <h1>Situation</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ situation.id }}</td>
+            </tr>
+            <tr>
+                <th>Nom</th>
+                <td>{{ situation.nom }}</td>
+            </tr>
+            <tr>
+                <th>Lieu</th>
+                <td>{{ situation.lieu }}</td>
+            </tr>
+            <tr>
+                <th>Date</th>
+                <td>{{ situation.date ? situation.date|date('Y-m-d') : '' }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_situation_index') }}">back to list</a>
+
+    <a href="{{ path('app_situation_edit', {'id': situation.id}) }}">edit</a>
+
+    {{ include('situation/_delete_form.html.twig') }}
+{% endblock %}

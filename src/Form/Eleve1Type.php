@@ -2,23 +2,29 @@
 
 namespace App\Form;
 
-use App\Entity\Portefeuille;
+use App\Entity\Eleve;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
-class PortefeuilleType extends AbstractType
+class Eleve1Type extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
+            ->add('nom')
+            ->add('prenom')
+            ->add('date')
+            ->add('option')
+            ->add('promo')
+            ->add('portefeuille')
         ;
     }
 
     public function configureOptions(OptionsResolver $resolver): void
     {
         $resolver->setDefaults([
-            'data_class' => Portefeuille::class,
+            'data_class' => Eleve::class,
         ]);
     }
 }

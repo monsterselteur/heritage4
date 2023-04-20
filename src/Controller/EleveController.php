@@ -3,7 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Eleve;
-use App\Form\EleveType;
+use App\Form\Eleve1Type;
 use App\Repository\EleveRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -31,7 +31,7 @@ class EleveController extends AbstractController
     public function new(Request $request, EleveRepository $eleveRepository): Response
     {
         $eleve = new Eleve();
-        $form = $this->createForm(EleveType::class, $eleve);
+        $form = $this->createForm(Eleve1Type::class, $eleve);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
@@ -61,7 +61,7 @@ class EleveController extends AbstractController
      */
     public function edit(Request $request, Eleve $eleve, EleveRepository $eleveRepository): Response
     {
-        $form = $this->createForm(EleveType::class, $eleve);
+        $form = $this->createForm(Eleve1Type::class, $eleve);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {

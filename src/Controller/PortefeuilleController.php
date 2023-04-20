@@ -3,7 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Portefeuille;
-use App\Form\PortefeuilleType;
+use App\Form\Portefeuille1Type;
 use App\Repository\PortefeuilleRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -31,7 +31,7 @@ class PortefeuilleController extends AbstractController
     public function new(Request $request, PortefeuilleRepository $portefeuilleRepository): Response
     {
         $portefeuille = new Portefeuille();
-        $form = $this->createForm(PortefeuilleType::class, $portefeuille);
+        $form = $this->createForm(Portefeuille1Type::class, $portefeuille);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
@@ -61,7 +61,7 @@ class PortefeuilleController extends AbstractController
      */
     public function edit(Request $request, Portefeuille $portefeuille, PortefeuilleRepository $portefeuilleRepository): Response
     {
-        $form = $this->createForm(PortefeuilleType::class, $portefeuille);
+        $form = $this->createForm(Portefeuille1Type::class, $portefeuille);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {

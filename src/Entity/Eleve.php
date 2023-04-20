@@ -27,6 +27,11 @@ class Eleve extends User
      */
     private $promo;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=Portefeuille::class, inversedBy="eleves")
+     */
+    private $portefeuille;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -52,6 +57,18 @@ class Eleve extends User
     public function setPromo(?Promo $promo): self
     {
         $this->promo = $promo;
+
+        return $this;
+    }
+
+    public function getPortefeuille(): ?Portefeuille
+    {
+        return $this->portefeuille;
+    }
+
+    public function setPortefeuille(?Portefeuille $portefeuille): self
+    {
+        $this->portefeuille = $portefeuille;
 
         return $this;
     }

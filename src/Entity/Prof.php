@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * @ORM\Entity(repositoryClass=ProfRepository::class)
  */
-class Prof extends User
+class Prof extends UserProf
 {
     /**
      * @ORM\Id

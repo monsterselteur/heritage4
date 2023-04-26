@@ -34,11 +34,12 @@ class ProfType extends AbstractType
                 'first_options' => ['label' => 'Password'],
                 'second_options' => ['label' => 'Confirm Password']
             ])
-            ->add('option', TextType::class)
             ->add('submit', SubmitType::class, [
                 'label' => 'Enregistrer',
             ])
         ;
+        // Supprimer le champ "option"
+        $builder->remove('option');
     }
 
     public function configureOptions(OptionsResolver $resolver): void

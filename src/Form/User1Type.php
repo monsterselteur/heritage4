@@ -22,7 +22,7 @@ class User1Type extends AbstractType
         $builder
             ->add('email', EmailType::class)
             ->add('prenom', TextType::class)
-            ->add('name', TextType::class)
+            ->add('nom', TextType::class)
             ->add('dateDeNaissance', DateType::class, [
                 'widget' => 'single_text',
                 'format' => 'yyyy-MM-dd',

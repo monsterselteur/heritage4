@@ -4,23 +4,18 @@ namespace App\Entity;
 
 use App\Repository\EleveRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
+use Symfony\Component\Security\Core\User\UserInterface;
 
 /**
  * @ORM\Entity(repositoryClass=EleveRepository::class)
  */
-class Eleve extends User
+class Eleve extends User1
 {
-    /**
-     * @ORM\Id
-     * @ORM\GeneratedValue
-     * @ORM\Column(type="integer")
-     */
-    protected $id;
-
     /**
      * @ORM\Column(type="string", length=255)
      */
-    protected $option;
+    private $option;
 
     /**
      * @ORM\ManyToOne(targetEntity=Promo::class, inversedBy="eleves")
@@ -31,11 +26,6 @@ class Eleve extends User
      * @ORM\ManyToOne(targetEntity=Portefeuille::class, inversedBy="eleves")
      */
     private $portefeuille;
-
-    public function getId(): ?int
-    {
-        return $this->id;
-    }
 
     public function getOption(): ?string
     {

@@ -2,7 +2,9 @@
 
 namespace App\Controller;
 
+use App\Entity\Eleve;
 use App\Entity\User1;
+use App\Form\Eleve1Type;
 use App\Form\User1Type;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -23,9 +25,9 @@ class RegistrationControllerEleveController extends AbstractController
      */
     public function index(Request $request)
     {
-        $user = new User1();
+        $user = new Eleve();
 
-        $form = $this->createForm(User1Type::class, $user);
+        $form = $this->createForm(Eleve1Type::class, $user);
 
         $form->handleRequest($request);
 

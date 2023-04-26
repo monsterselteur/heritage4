@@ -12,7 +12,7 @@ use Symfony\Component\Security\Core\User\UserInterface;
 
 /**
  * @ORM\Entity(repositoryClass=User1Repository::class)
- * @InheritanceType("JOINED")
+ * @InheritanceType("SINGLE_TABLE")
  * @DiscriminatorColumn(name="type", type="string")
  * @DiscriminatorMap({"prof" = "Prof", "eleve" = "Eleve"})
  */
@@ -23,42 +23,38 @@ class User1 implements UserInterface, PasswordAuthenticatedUserInterface
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
      */
-    private $id;
+    protected $id;
 
     /**
      * @ORM\Column(type="string", length=25)
      */
-    private string $prenom;
+    protected string $prenom;
 
     /**
      * @ORM\Column(type="string", length=25)
      */
-    private string $nom;
+    protected string $nom;
 
     /**
      * @ORM\Column(type="string", length=180, unique=true)
      */
-    private $email;
+    protected $email;
     /**
      * @ORM\Column(type="date")
      */
-    private ?\DateTimeInterface $dateDeNaissance;
-    /**
-     * @ORM\Column(type="string", length=180)
-     */
-    private ?string $option;
+    protected ?\DateTimeInterface $dateDeNaissance;
 
 
     /**
      * @ORM\Column(type="json")
      */
-    private $roles = [];
+    protected $roles = [];
 
     /**
      * @var string The hashed password
      * @ORM\Column(type="string")
      */
-    private $password;
+    protected $password;
 
     public function getId(): ?int
     {
@@ -115,18 +111,6 @@ class User1 implements UserInterface, PasswordAuthenticatedUserInterface
         return $this;
     }
 
-    public function getOption(): ?string
-
-    {
-        return (string) $this->option;
-    }
-
-    public function setOption(string $option): self
-    {
-        $this->option = $option;
-
-        return $this;
-    }
     /**
      * A visual identifier that represents this user.
      *

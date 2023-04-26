@@ -38,6 +38,7 @@ class User1Type extends AbstractType
             ])
 
         ;
+        $builder->remove('option');
     }
 
     public function configureOptions(OptionsResolver $resolver)

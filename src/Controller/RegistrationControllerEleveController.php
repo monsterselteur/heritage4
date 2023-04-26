@@ -27,7 +27,7 @@ class RegistrationControllerEleveController extends AbstractController
     {
         $user = new User1();
 
-        $form = $this->createForm(User1Type::class, $user);
+        $form = $this->createForm(Eleve1Type::class, $user);
 
         $form->handleRequest($request);
 

@@ -20,38 +20,38 @@ class User1 implements UserInterface, PasswordAuthenticatedUserInterface
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
      */
-    protected $id;
+    private $id;
 
     /**
      * @ORM\Column(type="string", length=25)
      */
-    protected string $prenom;
+    private string $prenom;
 
     /**
      * @ORM\Column(type="string", length=25)
      */
-    protected string $nom;
+    private string $nom;
 
     /**
      * @ORM\Column(type="string", length=180, unique=true)
      */
-    protected $email;
+    private $email;
     /**
      * @ORM\Column(type="date")
      */
-    protected ?\DateTimeInterface $dateDeNaissance;
+    private ?\DateTimeInterface $dateDeNaissance;
 
 
     /**
      * @ORM\Column(type="json")
      */
-    protected $roles = [];
+    private $roles = [];
 
     /**
      * @var string The hashed password
      * @ORM\Column(type="string")
      */
-    protected $password;
+    private $password;
 
     /**
      * @ORM\Column(type="string", length=255)
@@ -84,13 +84,13 @@ class User1 implements UserInterface, PasswordAuthenticatedUserInterface
 
         return $this;
     }
-    public function getName(): string
+    public function getNom(): string
 
     {
         return (string) $this->nom;
     }
 
-    public function setName(string $nom): self
+    public function setNom(string $nom): self
     {
         $this->nom = $nom;
 

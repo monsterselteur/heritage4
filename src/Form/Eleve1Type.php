@@ -3,6 +3,7 @@
 namespace App\Form;
 
 use App\Entity\Eleve;
+use App\Entity\User1;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -24,7 +25,7 @@ class Eleve1Type extends AbstractType
     public function configureOptions(OptionsResolver $resolver): void
     {
         $resolver->setDefaults([
-            'data_class' => Eleve::class,
+            'data_class' => User1::class,
         ]);
     }
 }

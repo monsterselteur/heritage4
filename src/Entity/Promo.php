@@ -30,13 +30,14 @@ class Promo
     private $date;
 
     /**
-     * @ORM\OneToMany(targetEntity=Eleve::class, mappedBy="promo")
+     * @ORM\OneToMany(targetEntity=User1::class, mappedBy="promo")
      */
-    private $eleves;
+    private $user1s;
 
     public function __construct()
     {
         $this->eleves = new ArrayCollection();
+        $this->user1s = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -92,6 +93,36 @@ class Promo
             // set the owning side to null (unless already changed)
             if ($elefe->getPromo() === $this) {
                 $elefe->setPromo(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, User1>
+     */
+    public function getUser1s(): Collection
+    {
+        return $this->user1s;
+    }
+
+    public function addUser1(User1 $user1): self
+    {
+        if (!$this->user1s->contains($user1)) {
+            $this->user1s[] = $user1;
+            $user1->setPromo($this);
+        }
+
+        return $this;
+    }
+
+    public function removeUser1(User1 $user1): self
+    {
+        if ($this->user1s->removeElement($user1)) {
+            // set the owning side to null (unless already changed)
+            if ($user1->getPromo() === $this) {
+                $user1->setPromo(null);
             }
         }
 

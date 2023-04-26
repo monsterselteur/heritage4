@@ -24,9 +24,15 @@ class Portefeuille
      */
     private $groupeCompetences;
 
+    /**
+     * @ORM\OneToMany(targetEntity=User1::class, mappedBy="portefeuille")
+     */
+    private $user1s;
+
     public function __construct()
     {
         $this->groupeCompetences = new ArrayCollection();
+        $this->user1s = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -67,5 +73,35 @@ class Portefeuille
     public function __toString()
     {
         return $this->getId()."";
+    }
+
+    /**
+     * @return Collection<int, User1>
+     */
+    public function getUser1s(): Collection
+    {
+        return $this->user1s;
+    }
+
+    public function addUser1(User1 $user1): self
+    {
+        if (!$this->user1s->contains($user1)) {
+            $this->user1s[] = $user1;
+            $user1->setPortefeuille($this);
+        }
+
+        return $this;
+    }
+
+    public function removeUser1(User1 $user1): self
+    {
+        if ($this->user1s->removeElement($user1)) {
+            // set the owning side to null (unless already changed)
+            if ($user1->getPortefeuille() === $this) {
+                $user1->setPortefeuille(null);
+            }
+        }
+
+        return $this;
     }
 }

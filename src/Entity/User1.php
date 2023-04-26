@@ -12,9 +12,6 @@ use Symfony\Component\Security\Core\User\UserInterface;
 
 /**
  * @ORM\Entity(repositoryClass=User1Repository::class)
- * @InheritanceType("SINGLE_TABLE")
- * @DiscriminatorColumn(name="type", type="string")
- * @DiscriminatorMap({"prof" = "Prof", "eleve" = "Eleve"})
  */
 class User1 implements UserInterface, PasswordAuthenticatedUserInterface
 {
@@ -55,6 +52,21 @@ class User1 implements UserInterface, PasswordAuthenticatedUserInterface
      * @ORM\Column(type="string")
      */
     protected $password;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $option;
+
+    /**
+     * @ORM\ManyToOne(targetEntity=Promo::class, inversedBy="user1s")
+     */
+    private $promo;
+
+    /**
+     * @ORM\ManyToOne(targetEntity=portefeuille::class, inversedBy="user1s")
+     */
+    private $portefeuille;
 
     public function getId(): ?int
     {
@@ -181,5 +193,41 @@ class User1 implements UserInterface, PasswordAuthenticatedUserInterface
     {
         // If you store any temporary, sensitive data on the user, clear it here
         // $this->plainPassword = null;
+    }
+
+    public function getOption(): ?string
+    {
+        return $this->option;
+    }
+
+    public function setOption(string $option): self
+    {
+        $this->option = $option;
+
+        return $this;
+    }
+
+    public function getPromo(): ?Promo
+    {
+        return $this->promo;
+    }
+
+    public function setPromo(?Promo $promo): self
+    {
+        $this->promo = $promo;
+
+        return $this;
+    }
+
+    public function getPortefeuille(): ?portefeuille
+    {
+        return $this->portefeuille;
+    }
+
+    public function setPortefeuille(?portefeuille $portefeuille): self
+    {
+        $this->portefeuille = $portefeuille;
+
+        return $this;
     }
 }

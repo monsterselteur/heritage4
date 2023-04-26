@@ -4,6 +4,7 @@ namespace App\Controller;
 
 
 use App\Entity\Prof;
+use App\Entity\User1;
 use App\Entity\UserProf;
 use App\Form\ProfType;
 use App\Form\User1Type;
@@ -27,9 +28,9 @@ class RegistrationControllerProfController extends AbstractController
      */
     public function index(Request $request)
     {
-        $user = new Prof();
+        $user = new User1();
 
-        $form = $this->createForm(ProfType::class, $user);
+        $form = $this->createForm(User1Type::class, $user);
 
         $form->handleRequest($request);
 

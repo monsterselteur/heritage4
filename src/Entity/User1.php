@@ -64,7 +64,7 @@ class User1 implements UserInterface, PasswordAuthenticatedUserInterface
     private $promo;
 
     /**
-     * @ORM\ManyToOne(targetEntity=portefeuille::class, inversedBy="user1s")
+     * @ORM\ManyToOne(targetEntity=Portefeuille::class, inversedBy="user1s")
      */
     private $portefeuille;
 

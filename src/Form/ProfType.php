@@ -21,7 +21,6 @@ class ProfType extends AbstractType
         $builder
             ->add('nom')
             ->add('prenom')
-            ->add('date')
             ->add('email', EmailType::class)
             ->add('prenom', TextType::class)
             ->add('nom', TextType::class)

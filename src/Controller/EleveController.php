@@ -81,7 +81,7 @@ class EleveController extends AbstractController
     /**
      * @Route("/{id}", name="app_eleve_delete", methods={"POST"})
      */
-    public function delete(Request $request,    User1 $eleve, EleveRepository $eleveRepository): Response
+    public function delete(Request $request, User1 $eleve, EleveRepository $eleveRepository): Response
     {
         if ($this->isCsrfTokenValid('delete'.$eleve->getId(), $request->request->get('_token'))) {
             $eleveRepository->remove($eleve, true);

@@ -12,10 +12,20 @@ class AccueilController extends AbstractController
     /**
      * @Route("/accueil", name="app_accueil")
      */
-    public function index(): Response
+    public function index(EleveRepository $eleveRepository): Response
     {
+        $eleves = $eleveRepository->findAll();
+        $eleve = array();
+        foreach ($eleves as $eleveItem) {
+            if (in_array('ROLE_USER', $eleveItem->getRoles())) {
+                $eleve[] = $eleveItem;
+            }
+        }
+
         return $this->render('accueil/index.html.twig', [
             'controller_name' => 'AccueilController',
+            'eleves' => $eleve
+
         ]);
     }
 }

@@ -2,7 +2,6 @@
 
 namespace App\Controller;
 
-use App\Entity\Eleve;
 use App\Entity\User1;
 use App\Form\Eleve1Type;
 use App\Form\User1Type;

@@ -3,12 +3,9 @@
 namespace App\Controller;
 
 
-use App\Entity\Prof;
 use App\Entity\User1;
-use App\Entity\UserProf;
 use App\Form\ProfType;
 use App\Form\User1Type;
-use App\Form\UserProfType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;

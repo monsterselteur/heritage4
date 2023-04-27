@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Prof;
+use App\Entity\User1;
 use App\Form\ProfType;
 use App\Repository\ProfRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -30,7 +31,7 @@ class ProfController extends AbstractController
      */
     public function new(Request $request, ProfRepository $profRepository): Response
     {
-        $prof = new Prof();
+        $prof = new User1();
         $form = $this->createForm(ProfType::class, $prof);
         $form->handleRequest($request);
 
@@ -49,7 +50,7 @@ class ProfController extends AbstractController
     /**
      * @Route("/{id}", name="app_prof_show", methods={"GET"})
      */
-    public function show(Prof $prof): Response
+    public function show(User1 $prof): Response
     {
         return $this->render('prof/show.html.twig', [
             'prof' => $prof,
@@ -59,7 +60,7 @@ class ProfController extends AbstractController
     /**
      * @Route("/{id}/edit", name="app_prof_edit", methods={"GET", "POST"})
      */
-    public function edit(Request $request, Prof $prof, ProfRepository $profRepository): Response
+    public function edit(Request $request, User1 $prof, ProfRepository $profRepository): Response
     {
         $form = $this->createForm(ProfType::class, $prof);
         $form->handleRequest($request);
@@ -79,7 +80,7 @@ class ProfController extends AbstractController
     /**
      * @Route("/{id}", name="app_prof_delete", methods={"POST"})
      */
-    public function delete(Request $request, Prof $prof, ProfRepository $profRepository): Response
+    public function delete(Request $request, User1 $prof, ProfRepository $profRepository): Response
     {
         if ($this->isCsrfTokenValid('delete'.$prof->getId(), $request->request->get('_token'))) {
             $profRepository->remove($prof, true);

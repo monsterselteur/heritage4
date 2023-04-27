@@ -2,26 +2,26 @@
 
 namespace App\Repository;
 
-use App\Entity\Prof;
+use App\Entity\User1;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 
 /**
- * @extends ServiceEntityRepository<Prof>
+ * @extends ServiceEntityRepository<User1>
  *
- * @method Prof|null find($id, $lockMode = null, $lockVersion = null)
- * @method Prof|null findOneBy(array $criteria, array $orderBy = null)
- * @method Prof[]    findAll()
- * @method Prof[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
+ * @method User1|null find($id, $lockMode = null, $lockVersion = null)
+ * @method User1|null findOneBy(array $criteria, array $orderBy = null)
+ * @method User1[]    findAll()
+ * @method User1[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
  */
 class ProfRepository extends ServiceEntityRepository
 {
     public function __construct(ManagerRegistry $registry)
     {
-        parent::__construct($registry, Prof::class);
+        parent::__construct($registry, User1::class);
     }
 
-    public function add(Prof $entity, bool $flush = false): void
+    public function add(User1 $entity, bool $flush = false): void
     {
         $this->getEntityManager()->persist($entity);
 
@@ -30,7 +30,7 @@ class ProfRepository extends ServiceEntityRepository
         }
     }
 
-    public function remove(Prof $entity, bool $flush = false): void
+    public function remove(User1 $entity, bool $flush = false): void
     {
         $this->getEntityManager()->remove($entity);
 

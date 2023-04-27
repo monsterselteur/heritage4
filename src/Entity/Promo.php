@@ -6,7 +6,6 @@ use App\Repository\PromoRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
-use Eleve;
 
 /**
  * @ORM\Entity(repositoryClass=PromoRepository::class)
@@ -71,14 +70,14 @@ class Promo
     }
 
     /**
-     * @return Collection<int, User1>
+     * @return Collection<int, Eleve>
      */
     public function getEleves(): Collection
     {
         return $this->eleves;
     }
 
-    public function addElefe(User1 $elefe): self
+    public function addElefe(Eleve $elefe): self
     {
         if (!$this->eleves->contains($elefe)) {
             $this->eleves[] = $elefe;
@@ -88,7 +87,7 @@ class Promo
         return $this;
     }
 
-    public function removeElefe(User1 $elefe): self
+    public function removeElefe(Eleve $elefe): self
     {
         if ($this->eleves->removeElement($elefe)) {
             // set the owning side to null (unless already changed)
@@ -129,10 +128,4 @@ class Promo
 
         return $this;
     }
-
-    public function __toString()
-    {
-        return $this->getNom();
-    }
-
 }

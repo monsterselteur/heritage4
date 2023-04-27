@@ -39,7 +39,7 @@ class RegistrationControllerProfController extends AbstractController
             $user->setPassword($this->passwordEncoder->encodePassword($user, $user->getPassword()));
 
             // Set their role
-            $user->setRoles(['ROLE_USER','ROLE_PROF']);
+            $user->setRoles(['ROLE_PROF']);
 
             // Save
             $em = $this->getDoctrine()->getManager();

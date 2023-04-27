@@ -44,5 +44,4 @@ class AccueilController extends AbstractController
             'situation' => $situations
         ]);
     }
-
 }

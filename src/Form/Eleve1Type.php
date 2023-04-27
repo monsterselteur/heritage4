@@ -39,7 +39,6 @@ class Eleve1Type extends AbstractType
             ->add('portefeuille')
 
         ;
-        $builder->remove('option');
     }
 
     public function configureOptions(OptionsResolver $resolver): void

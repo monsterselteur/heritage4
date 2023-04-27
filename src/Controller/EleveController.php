@@ -3,8 +3,10 @@
 namespace App\Controller;
 
 use App\Entity\Eleve;
+use App\Entity\User1;
 use App\Form\Eleve1Type;
 use App\Repository\EleveRepository;
+use http\Client\Curl\User;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -30,7 +32,7 @@ class EleveController extends AbstractController
      */
     public function new(Request $request, EleveRepository $eleveRepository): Response
     {
-        $eleve = new Eleve();
+        $eleve = new User1();
         $form = $this->createForm(Eleve1Type::class, $eleve);
         $form->handleRequest($request);
 
@@ -49,7 +51,7 @@ class EleveController extends AbstractController
     /**
      * @Route("/{id}", name="app_eleve_show", methods={"GET"})
      */
-    public function show(Eleve $eleve): Response
+    public function show(User1 $eleve): Response
     {
         return $this->render('eleve/show.html.twig', [
             'eleve' => $eleve,
@@ -59,7 +61,7 @@ class EleveController extends AbstractController
     /**
      * @Route("/{id}/edit", name="app_eleve_edit", methods={"GET", "POST"})
      */
-    public function edit(Request $request, Eleve $eleve, EleveRepository $eleveRepository): Response
+    public function edit(Request $request, User1 $eleve, EleveRepository $eleveRepository): Response
     {
         $form = $this->createForm(Eleve1Type::class, $eleve);
         $form->handleRequest($request);
@@ -79,7 +81,7 @@ class EleveController extends AbstractController
     /**
      * @Route("/{id}", name="app_eleve_delete", methods={"POST"})
      */
-    public function delete(Request $request, Eleve $eleve, EleveRepository $eleveRepository): Response
+    public function delete(Request $request,    User1 $eleve, EleveRepository $eleveRepository): Response
     {
         if ($this->isCsrfTokenValid('delete'.$eleve->getId(), $request->request->get('_token'))) {
             $eleveRepository->remove($eleve, true);

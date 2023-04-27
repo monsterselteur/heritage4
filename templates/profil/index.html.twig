@@ -1,0 +1,56 @@
+{% extends 'base.html.twig' %}
+
+
+{% block title %}Profil{% endblock %}
+
+{% block body %}
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="https://127.0.0.1:8000/accueil">Porte-feuille de competences</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+            <ul class="navbar-nav">
+
+                {% if is_granted('ROLE_ADMIN') %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ path('app_prof_new') }}">Créer un utilisateur</a>
+                    </li>
+                {% endif %}
+                <li class="nav-item">
+                    <a class="nav-link" href="#"><img src="{{ asset('img/kisspng-user-profile-computer-icons-login-clip-art-profile-picture-icon-5b49de2f816d32.9226305815315676635301.png') }}" alt="Symfony!"/></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ path('app_logout') }}"><img src="{{ asset('img/kisspng-computer-icons-login-clip-art-exit-5ac7710254b211.5316835815230200343469.png') }}" alt="Symfony!"/></a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <table class="table">
+        <thead>
+        <tr>
+            <th>email</th>
+            <th>prenom</th>
+            <th>nom</th>
+            <th>promo</th>
+            <th>option</th>
+        </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>{{ email }}</td>
+                <td> {{ prenom }}</td>
+                <td>{{ nom }}</td>
+                <td>{{ promo }}</td>
+                <td>{{ option }}</td>
+                <td>
+                    <a href="{{ path('app_eleve_edit', {'id': id}) }}">Modifer</a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+
+{% endblock %}

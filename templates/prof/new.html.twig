@@ -1,11 +1,57 @@
 {% extends 'base.html.twig' %}
 
 {% block title %}New Prof{% endblock %}
+   {% block stylesheets %}    <link rel="stylesheet" href="{{ asset('CSS/style.css') }}"> {% endblock %}
 
-{% block body %}
-    <h1>Create new Prof</h1>
 
-    {{ include('prof/_form.html.twig') }}
+{% block body %} <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="{{ path('app_accueil') }}">Porte-feuille de competences</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+        <ul class="navbar-nav">
 
-    <a href="{{ path('app_prof_index') }}">back to list</a>
+            {% if is_granted('ROLE_ADMIN') %}
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ path('app_prof_new') }}">Créer un professeur</a>
+                </li>
+                <li>
+                    <a class="nav-link" href="{{ path('app_eleve_new') }}">Créer un eleve</a>
+                </li>
+            {% endif %}
+
+            {% if is_granted('ROLE_USER') %}
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ path('app_situation_new') }}">nouvelle situation</a>
+                </li>
+            {% endif %}
+            <li class="nav-item">
+                <a class="nav-link" href="{{ path('app_profil_index') }}"><img src="{{ asset('img/kisspng-user-profile-computer-icons-login-clip-art-profile-picture-icon-5b49de2f816d32.9226305815315676635301.png') }}" alt="Symfony!"/></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{ path('app_logout') }}"><img src="{{ asset('img/kisspng-computer-icons-login-clip-art-exit-5ac7710254b211.5316835815230200343469.png') }}" alt="Symfony!"/></a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+
+    <div class="login-card mt-5" >
+
+    <h1 class="text-center">Create new Prof</h1>
+
+    <div class="form-eleve">
+        {{ form_start(form) }}
+        {{ form_row(form.email) }}
+        {{ form_row(form.prenom) }}
+        {{ form_row(form.nom) }}
+        {{ form_row(form.dateDeNaissance) }}
+        {{ form_row(form.password) }}
+        <div class="form-group">
+            {{ form_widget(form.submit, {'attr': {'class': 'btn btn-primary'}}) }}
+        </div>
+        {{ form_end(form) }}
+        <a href="{{ app.request.headers.get('referer') }}">back</a>
+    </div>
 {% endblock %}

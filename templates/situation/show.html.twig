@@ -39,6 +39,7 @@
                 <th>description</th>
                 <th>type</th>
                 <th>competence</th>
+                <th>action</th>
             </tr>
         </thead>
         <tbody>
@@ -48,6 +49,10 @@
                 <td>{{ activite.description }}</td>
                 <td>{{ activite.type }}</td>
                 <td>{{ activite.competence }}</td>
+                <td>
+                    <a href="{{ path('app_activite_show', {'id': activite.id}) }}">Voir</a>
+                    <a href="{{ path('app_activite_edit', {'id': activite.id}) }}">Modifer</a>
+                </td>
             </tr>
         {% endfor %}
         </tbody>

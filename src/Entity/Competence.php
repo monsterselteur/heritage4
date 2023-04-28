@@ -25,6 +25,12 @@ class Competence
     private $nom;
 
     /**
+     * @ORM\Column(type="boolean")
+     */
+    private $valide = false;
+
+
+    /**
      * @ORM\ManyToOne(targetEntity=GroupeCompetence::class, inversedBy="competences")
      */
     private $groupeCompetence;
@@ -66,6 +72,15 @@ class Competence
         $this->groupeCompetence = $groupeCompetence;
 
         return $this;
+    }
+    public function getValide()
+    {
+        return $this->valide;
+    }
+
+    public function setValide($valide): void
+    {
+        $this->valide = $valide;
     }
 
     public function __toString()

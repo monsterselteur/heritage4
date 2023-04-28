@@ -16,7 +16,7 @@ class ActiviteType extends AbstractType
             ->add('description')
             ->add('type')
             ->add('situation')
-            ->add('competences')
+            ->add('competence')
         ;
     }
 

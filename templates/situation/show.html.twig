@@ -26,9 +26,32 @@
         </tbody>
     </table>
 
-    <a href="{{ app.request.headers.get('referer') }}">back</a>
-
-    <a href="{{ path('app_situation_edit', {'id': situation.id}) }}">edit</a>
+    <a href="{{ path('app_situation_edit', {'id': situation.id}) }}">modifier</a>
 
     {{ include('situation/_delete_form.html.twig') }}
+
+    <h2>Activites</h2>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>nom</th>
+                <th>description</th>
+                <th>type</th>
+                <th>competence</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for activite in situation.activites %}
+            <tr>
+                <td>{{ activite.nom }}</td>
+                <td>{{ activite.description }}</td>
+                <td>{{ activite.type }}</td>
+                <td>{{ activite.competence }}</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ app.request.headers.get('referer') }}" class="btn btn-primary">retour</a>
 {% endblock %}

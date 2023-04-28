@@ -4,6 +4,7 @@ namespace App\Form;
 
 use App\Entity\Situation;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -15,7 +16,6 @@ class SituationType extends AbstractType
             ->add('nom')
             ->add('lieu')
             ->add('date')
-            ->add('competences')
         ;
     }
 

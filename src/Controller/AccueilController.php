@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Repository\ActiviteRepository;
 use App\Repository\CompetenceRepository;
 use App\Repository\EleveRepository;
 use App\Repository\SituationRepository;
@@ -17,7 +18,9 @@ class AccueilController extends AbstractController
      */
     public function index(EleveRepository $eleveRepository, SituationRepository $situationRepository): Response
     {
-        $situations = $situationRepository->findAll();
+        $userId = $this->getUser()->getId();
+        $situations = $situationRepository->findBy(['id' => $userId]);
+
         $users = $eleveRepository->findAll();
         $eleve = array();
         foreach ($users as $eleveItem) {
@@ -41,7 +44,7 @@ class AccueilController extends AbstractController
             'controller_name' => 'AccueilController',
             'eleves' => $eleve,
             'users' => $pasadmin,
-            'situation' => $situations
+            'situation' => $situations,
         ]);
     }
 }

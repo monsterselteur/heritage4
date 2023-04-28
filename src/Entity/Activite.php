@@ -37,6 +37,11 @@ class Activite
      */
     private $situation;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=Competence::class, inversedBy="activites")
+     */
+    private $competence;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -86,6 +91,18 @@ class Activite
     public function setSituation(?Situation $situation): self
     {
         $this->situation = $situation;
+
+        return $this;
+    }
+
+    public function getCompetence(): ?Competence
+    {
+        return $this->competence;
+    }
+
+    public function setCompetence(?Competence $competence): self
+    {
+        $this->competence = $competence;
 
         return $this;
     }

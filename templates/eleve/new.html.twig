@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 {% block stylesheets %}    <link rel="stylesheet" href="{{ asset('CSS/StyleNew.css') }}"> {% endblock %}
-{% block title %}New Eleve{% endblock %}
+{% block title %}Creation New Eleve{% endblock %}
 
 {% block body %}
 
@@ -14,8 +14,8 @@
         {{ form_row(form.dateDeNaissance) }}
         {{ form_row(form.password) }}
         {{ form_row(form.option) }}
-        {{ form_row(form.promo) }}
-        {{ form_row(form.portefeuille) }}
+        {{ form_row(form.promo, {'attr': {'class': 'custom-select'}}) }}
+        {{ form_row(form.portefeuille, {'attr': {'class': 'custom-select'}}) }}
         <div class="form-group">
             {{ form_widget(form.submit, {'attr': {'class': 'btn btn-primary'}}) }}
         </div>

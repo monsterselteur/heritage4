@@ -5,7 +5,7 @@
 {% block body %}
 
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="https://127.0.0.1:8000/accueil">Porte-feuille de competences</a>
+        <a class="navbar-brand" href="{{ path('app_accueil') }}">Porte-feuille de competences</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -51,7 +51,7 @@
     <tbody>
     {% for i in users %}
         <tr>
-            <td> {{ i.prenom }}</td>
+            <td>{{ i.prenom }}</td>
             <td>{{ i.nom }}</td>
             <td>{{ i.email }}</td>
             <td>{{ i.promo }}</td>

@@ -7,7 +7,7 @@
 
     {{ include('groupe_competence/_form.html.twig', {'button_label': 'Update'}) }}
 
-    <a href="{{ path('app_groupe_competence_index') }}">back to list</a>
+    <a href="{{ app.request.headers.get('referer')  }}">back </a>
 
     {{ include('groupe_competence/_delete_form.html.twig') }}
 {% endblock %}

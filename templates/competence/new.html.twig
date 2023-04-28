@@ -7,5 +7,5 @@
 
     {{ include('competence/_form.html.twig') }}
 
-    <a href="{{ path('app_competence_index') }}">back to list</a>
+    <a href="{{app.request.headers.get('referer') }}">back to list</a>
 {% endblock %}

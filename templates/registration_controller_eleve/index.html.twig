@@ -45,5 +45,6 @@
         {{ form_row(form.submit, {'label': 'Valider'}) }}
 
         {{ form_end(form) }}
+        <a href="{{ app.request.headers.get('referer')  }}">back </a>
     </div>
 {% endblock %}

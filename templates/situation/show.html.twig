@@ -26,7 +26,7 @@
         </tbody>
     </table>
 
-    <a href="{{ path('app_situation_index') }}">back to list</a>
+    <a href="{{ app.request.headers.get('referer') }}">back</a>
 
     <a href="{{ path('app_situation_edit', {'id': situation.id}) }}">edit</a>
 

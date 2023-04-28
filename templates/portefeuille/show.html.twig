@@ -14,7 +14,7 @@
         </tbody>
     </table>
 
-    <a href="{{ path('app_portefeuille_index') }}">back to list</a>
+    <a href="{{ app.request.headers.get('referer')  }}">back </a>
 
     <a href="{{ path('app_portefeuille_edit', {'id': portefeuille.id}) }}">edit</a>
 

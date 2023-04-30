@@ -1,13 +1,21 @@
 {% extends 'base.html.twig' %}
-
-{% block title %}New Situation{% endblock %}
+{% block stylesheets %}    <link rel="stylesheet" href="{{ asset('CSS/StyleNew.css') }}"> {% endblock %}
+{% block title %}Nouvelle situation{% endblock %}
 
 {% block body %}
 
 
-    <h1>Create new Situation</h1>
+    <h1 class="text-center">Créer une nouvelle situation</h1>
+    <div class="formAll">
+        {{ form_start(form) }}
+        {{ form_row(form.nom) }}
+        {{ form_row(form.lieu) }}
+        {{ form_row(form.date, {'label': 'Date de Naissance :'}) }}
+        <div class="form-group">
+            <button class="btn btn-primary">{{ button_label|default('Save') }}</button>
+        </div>
+        {{ form_end(form) }}
+        <a href="{{app.request.headers.get('referer') }}">Retour</a>
+    </div>
 
-    {{ include('situation/_form.html.twig') }}
-
-    <a href="{{ app.request.headers.get('referer')  }}">back</a>
 {% endblock %}

@@ -1,13 +1,15 @@
+{% block stylesheets %}    <link rel="stylesheet" href="{{ asset('CSS/StyleNew.css') }}"> {% endblock %}
 {% extends 'base.html.twig' %}
 
 {% block title %}Edit Competence{% endblock %}
 
 {% block body %}
-    <h1>Edit Competence</h1>
-
-    {{ include('competence/_form.html.twig', {'button_label': 'Update'}) }}
-
-    <a href="{{ app.request.headers.get('referer') }}">back to list</a>
-
-    {{ include('competence/_delete_form.html.twig') }}
+    <h1 class="text-center">Edit une nouvelle Competence</h1>
+    <div class="formAll">
+        <div class="button-container">
+            {{ include('competence/_form.html.twig', {'button_label': 'Update'}) }}
+            <a href="{{ app.request.headers.get('referer') }}" class="return-btn">Retour</a>
+            {{ include('competence/_delete_form.html.twig') }}
+        </div>
+    </div>
 {% endblock %}

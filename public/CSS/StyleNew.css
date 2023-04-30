@@ -60,18 +60,7 @@
     cursor: pointer;
     margin-top: 20px;
 }
-.btn.btn-primary {
-    display: block;
-    width: 100%;
-    padding: 10px;
-    background-color: #4caf50;
-    color: #fff;
-    font-size: 18px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    margin-top: 20px;
-}
+
 
 .formAll a {
     display: inline-block;
@@ -80,9 +69,7 @@
     text-decoration: none;
 }
 
-.formAll a:hover {
-    text-decoration: underline;
-}
+
 input[type="date"] {
     padding: 10px;
     border: 1px solid #ccc;
@@ -93,12 +80,14 @@ input[type="date"] {
     background-color: #fff;
     background-image: linear-gradient(to bottom, #f9f9f9, #fff);
     transition: border-color 0.2s ease-in-out;
+    width: 100%;
 }
 
 input[type="date"]:focus {
     outline: none;
     border-color: #3e64af;
     box-shadow: 0 0 0 2px rgba(62, 100, 175, 0.2);
+    width: 100%;
 }
 
 select {
@@ -120,3 +109,47 @@ select:focus {
     outline: 0;
     box-shadow: 0 0 0 2px rgba(62, 100, 175, 0.2);
 }
+
+.delete-form-btn {
+    display: inline-block;
+    width: 100%;
+    padding: 10px;
+    background-color: #e10b21;
+    color: #ffffff;
+    font-size: 18px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 20px;
+    text-align: center;
+}
+
+/* Styles pour le bouton "Retour" */
+.button-container .return-btn {
+    display: inline-block;
+    width: 100%;
+    padding: 10px;
+    background-color: #0d8df8;
+    color: #ffffff;
+    font-size: 18px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 20px;
+    text-align: center;
+}
+.btn.btn-primary {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background-color: #4caf50;
+    color: #fff;
+    font-size: 18px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+
+

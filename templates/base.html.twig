@@ -16,7 +16,7 @@
     </head>
     <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href={{ path('app_accueil') }}>Porte-feuille de competences</a>
+        <a class="navbar-brand" href={{ path('app_accueil') }}>Portefeuille de competences</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -34,7 +34,7 @@
 
                 {% if is_granted('ROLE_USER') %}
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ path('app_situation_new') }}">nouvelle situation</a>
+                        <a class="nav-link" style="color: black" href="{{ path('app_situation_new') }}">Nouvelle situation</a>
                     </li>
                 {% endif %}
                 <li class="nav-item">

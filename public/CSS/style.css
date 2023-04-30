@@ -103,3 +103,14 @@ body {
     text-align: center;
     font-size: 12px;
 }
+.table{
+    width: 95%;
+}
+.navbar-brand{
+    font-weight: bold;
+}
+.navbar-nav{
+    font-weight: bold;
+
+}
+

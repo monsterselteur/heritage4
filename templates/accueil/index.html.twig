@@ -1,25 +1,47 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Accueil{% endblock %}
-
+{% block title %}
+    Accueil
+{% endblock %}
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('CSS/style.css') }}">
+{% endblock %}
 {% block body %}
+    <div class="ml-5">
+        <h1 class="title" style="font-weight: bolder; margin-top: 3rem;">
+            <i class="icon fas fa-graduation-cap" ></i>
+            Bienvenue <span>{{ app.user.prenom }}</span> !👋 <i class="icon fas fa-hand-wave"></i>
+        </h1>
+        {% if is_granted('ROLE_USER') %}
+        <h2 class="title" style="font-size: 1.5rem;
+margin-bottom: 2rem;">
+            Vue d'ensemble des compétences
+        </h2>
+    </div>
+        {% endif %}
 
+    {% if is_granted('ROLE_PROF') %}
+        <h2 class="title" style="font-size: 1.5rem;margin-bottom: 2rem;">
+            Vue d'ensemble des compétences par élèves
+        </h2>
+
+    {% endif %}
     {% if is_granted('ROLE_ADMIN') %}
 <table class="table">
     <thead>
     <tr>
-        <th>prenom</th>
-        <th>nom</th>
-        <th>email</th>
-        <th>promo</th>
-        <th>option</th>
-        <th>role</th>
+        <th>Prenom</th>
+        <th>Nom</th>
+        <th>E-mail</th>
+        <th>Promo</th>
+        <th>Option</th>
+        <th>Role</th>
     </tr>
     </thead>
     <tbody>
     {% for i in users %}
         <tr>
-            <td> {{ i.prenom }}</td>
+            <td>{{ i.prenom }}</td>
             <td>{{ i.nom }}</td>
             <td>{{ i.email }}</td>
             <td>{{ i.promo }}</td>
@@ -37,7 +59,7 @@
         </tr>
     {% else %}
         <tr>
-            <td colspan="4">aucun enregistrement trouver</td>
+            <td colspan="4">Aucun enregistrement trouver</td>
         </tr>
     {% endfor %}
 </table>
@@ -46,17 +68,18 @@
     <table class="table">
         <thead>
         <tr>
-            <th>prenom</th>
-            <th>nom</th>
-            <th>email</th>
-            <th>promo</th>
-            <th>option</th>
+            <th>Prenom</th>
+            <th>Nom</th>
+            <th>E-mail</th>
+            <th>Promo</th>
+            <th>Option</th>
+            <th>Action</th>
         </tr>
         </thead>
         <tbody>
         {% for i in eleves %}
             <tr>
-                <td> {{ i.prenom }}</td>
+                <td>{{ i.prenom }}</td>
                 <td>{{ i.nom }}</td>
                 <td>{{ i.email }}</td>
                 <td>{{ i.promo }}</td>
@@ -68,18 +91,18 @@
             </tr>
         {% else %}
             <tr>
-                <td colspan="4">aucun enregistrement trouver</td>
+                <td colspan="4">Aucun enregistrement trouver</td>
             </tr>
         {% endfor %}
     </table>
     {% endif %}
     {% if is_granted('ROLE_USER') %}
-        <table class="table">
+        <table class="table" style="margin-left: 2%;">
             <thead>
             <tr>
-                <th>situation</th>
-                <th>lieu</th>
-                <th>date</th>
+                <th>Situation</th>
+                <th>Lieu</th>
+                <th>Date</th>
                 <th>Action</th>
             </tr>
             </thead>
@@ -87,8 +110,8 @@
             {% for i in situation %}
                 <tr>
                     <td>{{ i.nom }}</td>
-                    <td> {{ i.lieu }}</td>
-                    <td>{{  i.date|date('Y-m-d') }}</td>
+                    <td>{{ i.lieu }}</td>
+                    <td>{{ i.date|date('Y-m-d') }}</td>
                     <td>
                         <a href="{{ path('app_situation_show', {'id': i.id}) }}">Voir</a>
                         <a href="{{ path('app_situation_edit', {'id': i.id}) }}">Modifer</a>
@@ -96,7 +119,7 @@
                 </tr>
             {% else %}
                 <tr>
-                    <td colspan="4">aucun enregistrement trouver</td>
+                    <td colspan="4">Aucun enregistrement trouver</td>
                 </tr>
             {% endfor %}
     {% endif %}

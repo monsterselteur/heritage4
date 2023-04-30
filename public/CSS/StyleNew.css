@@ -1,5 +1,5 @@
 /* Style pour le formulaire */
-.form-eleve {
+.formAll {
     max-width: 600px;
     margin: 0 auto;
     padding: 20px;
@@ -8,17 +8,17 @@
     background-color: #f7f7f7;
 }
 
-.form-eleve label {
+.for label {
     font-weight: bold;
     display: block;
     margin-bottom: 10px;
 }
 
-.form-eleve input[type="text"],
-.form-eleve input[type="password"],
-.form-eleve input[type="email"],
-.form-eleve input[type="number"],
-.form-eleve textarea {
+.formAll input[type="text"],
+.formAll input[type="password"],
+.formAll input[type="email"],
+.formAll input[type="number"],
+.formAll textarea {
     width: 100%;
     padding: 10px;
     border: 1px solid #ccc;
@@ -28,27 +28,39 @@
     margin-bottom: 20px;
 }
 
-.form-eleve .form-group {
+.formAll .form-group {
     margin-bottom: 20px;
 }
 
-.form-eleve .form-group label {
+.formAll .form-group label {
     display: block;
     margin-bottom: 5px;
 }
 
-.form-eleve .form-group .form-control {
+.formAll .form-group .form-control {
     padding: 10px;
     font-size: 16px;
     border-radius: 5px;
 }
 
-.form-eleve .form-group .form-control:focus {
+.formAll .form-group .form-control:focus {
     border-color: #4CAF50;
     box-shadow: none;
 }
 
-.form-eleve button[type="submit"] {
+.formAll button[type="submit"] {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background-color: #4caf50;
+    color: #fff;
+    font-size: 18px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 20px;
+}
+.btn.btn-primary {
     display: block;
     width: 100%;
     padding: 10px;
@@ -61,14 +73,14 @@
     margin-top: 20px;
 }
 
-.form-eleve a {
+.formAll a {
     display: inline-block;
     margin-top: 20px;
     color: #bf2f2f;
     text-decoration: none;
 }
 
-.form-eleve a:hover {
+.formAll a:hover {
     text-decoration: underline;
 }
 input[type="date"] {

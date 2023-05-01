@@ -96,6 +96,7 @@ margin-bottom: 2rem;">
         {% endfor %}
     </table>
     {% endif %}
+
     {% if is_granted('ROLE_USER') %}
         <table class="table" style="margin-left: 2%;">
             <thead>
@@ -125,5 +126,5 @@ margin-bottom: 2rem;">
     {% endif %}
         </tbody>
     </table>
-
 {% endblock %}
+

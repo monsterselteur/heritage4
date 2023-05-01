@@ -109,8 +109,14 @@ body {
 .navbar-brand{
     font-weight: bold;
 }
-.navbar-nav{
+.navbar-nav {
     font-weight: bold;
-
 }
 
+footer{
+    margin-left: -50px;
+}
+
+.container-footer{
+    margin-left: 5rem;
+}

@@ -34,16 +34,28 @@
                     <li>
                         <a class="nav-link" href="{{ path('app_eleve_new') }}">Créer un eleve</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ path('app_profil_index', {'id': app.user.id}) }}"><img src="{{ asset('img/kisspng-user-profile-computer-icons-login-clip-art-profile-picture-icon-5b49de2f816d32.9226305815315676635301.png') }}" alt="Symfony!"/></a>
+                    </li>
                 {% endif %}
 
                 {% if is_granted('ROLE_USER') %}
                     <li class="nav-item">
                         <a class="nav-link" style="color: black" href="{{ path('app_situation_new') }}">Nouvelle situation</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ path('app_eleve_edit',{'id': app.user.id}) }}"><img src="{{ asset('img/kisspng-user-profile-computer-icons-login-clip-art-profile-picture-icon-5b49de2f816d32.9226305815315676635301.png') }}" alt="Symfony!"/></a>
+                    </li>
                 {% endif %}
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ path('app_profil_index') }}"><img src="{{ asset('img/kisspng-user-profile-computer-icons-login-clip-art-profile-picture-icon-5b49de2f816d32.9226305815315676635301.png') }}" alt="Symfony!"/></a>
-                </li>
+                {% if is_granted('ROLE_PROF') %}
+                    <li class="nav-item">
+                        <a class="nav-link" style="color: black" href="{{ path('app_promo_index') }}">Promo</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ path('app_prof_edit',{'id': app.user.id}) }}"><img src="{{ asset('img/kisspng-user-profile-computer-icons-login-clip-art-profile-picture-icon-5b49de2f816d32.9226305815315676635301.png') }}" alt="Symfony!"/></a>
+                    </li>
+                {% endif %}
+
                 <li class="nav-item">
                     <a class="nav-link" href="{{ path('app_logout') }}"><img src="{{ asset('img/kisspng-computer-icons-login-clip-art-exit-5ac7710254b211.5316835815230200343469.png') }}" alt="Symfony!"/></a>
                 </li>

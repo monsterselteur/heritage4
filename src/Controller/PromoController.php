@@ -3,7 +3,10 @@
 namespace App\Controller;
 
 use App\Entity\Promo;
+use App\Entity\User1;
+use App\Form\DeleteUsersType;
 use App\Form\PromoType;
+use App\Repository\EleveRepository;
 use App\Repository\PromoRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -46,6 +49,7 @@ class PromoController extends AbstractController
         ]);
     }
 
+
     /**
      * @Route("/{id}", name="app_promo_show", methods={"GET"})
      */
@@ -76,9 +80,6 @@ class PromoController extends AbstractController
         ]);
     }
 
-
-
-
     /**
      * @Route("/{id}", name="app_promo_delete", methods={"POST"})
      */
@@ -90,4 +91,54 @@ class PromoController extends AbstractController
 
         return $this->redirectToRoute('app_promo_index', [], Response::HTTP_SEE_OTHER);
     }
-}
+
+    /**
+     * @Route("/{id}/add-user", name="app_promo_addusertopromo", methods={"GET", "POST"})
+     */
+    public function addUserToPromo(EleveRepository $eleveRepository, Request $request, $id): Response
+    {
+        $promo = $this->getDoctrine()
+            ->getRepository(Promo::class)
+            ->find($id);
+
+        if ($request->isMethod('POST')) {
+            $userId = $request->request->get('user');
+            $user = $eleveRepository->find($userId);
+            $promo->addEleve($user);
+            $this->getDoctrine()->getManager()->flush();
+        }
+        $users = $eleveRepository->findAll();
+        $eleve = array();
+        foreach ($users as $eleveItem) {
+            if (in_array('ROLE_USER', $eleveItem->getRoles())and $eleveItem->getPromo() != null) {
+                if ($eleveItem->getPromo()->getId() != $id) {
+                    $eleve[] = $eleveItem;
+                }
+            }
+            elseif (in_array('ROLE_USER', $eleveItem->getRoles())){
+                $eleve[] = $eleveItem;
+            }
+        }
+
+        return $this->render('promo/add_user.html.twig', [
+            'promo' => $promo,
+            'eleve'=> $eleve
+        ]);
+    }
+    /**
+     * @Route("/{id}/supp-user", name="app_promo_suppusertopromo", methods={"GET", "POST"})
+     */
+    public function suppUserToPromo(EleveRepository $eleveRepository, Request $request, $id): Response
+    {
+        $promo = $this->getDoctrine()
+            ->getRepository(Promo::class)
+            ->find($id);
+
+        if ($request->isMethod('POST')) {
+            $userId = $request->request->get('user');
+            if ($userId) {
+                $user = $eleveRepository->find($userId);
+                $promo->removeUser1($user);
+                $this->getDoctrine()->getManager()->flush();
+            }
+        }

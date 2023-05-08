@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Ajouter un étudiant{% endblock %}
+
+{% block body %}
+    <h1>Ajouter un étudiant à la promotion {{ promo.nom }}</h1>
+    <form method="POST" action="{{ path('app_promo_addusertopromo', {id: promo.id}) }}">
+        <label for="users">Choisir un utilisateur :</label>
+        <select id="users" name="user">
+            {% for eleve in eleve %}
+                <option value="{{ eleve.id }}">{{ eleve.nom }} {{ eleve.prenom }}</option>
+            {% endfor %}
+        </select>
+        <button type="submit" name="app_promo_addusertopromo">Valider</button>
+    </form>
+    <a href="{{ path('app_promo_show', {id: promo.id}) }}">retour </a>
+{% endblock %}

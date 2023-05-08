@@ -36,7 +36,6 @@ class Promo
 
     public function __construct()
     {
-        $this->eleves = new ArrayCollection();
         $this->user1s = new ArrayCollection();
     }
 
@@ -74,13 +73,13 @@ class Promo
      */
     public function getEleves(): Collection
     {
-        return $this->eleves;
+        return $this->user1s;
     }
 
     public function addEleve(User1 $elefe): self
     {
-        if (!$this->eleves->contains($elefe)) {
-            $this->eleves[] = $elefe;
+        if (!$this->user1s->contains($elefe)) {
+            $this->user1s[] = $elefe;
             $elefe->setPromo($this);
         }
 
@@ -89,7 +88,7 @@ class Promo
 
     public function removeElefe(User1 $elefe): self
     {
-        if ($this->eleves->removeElement($elefe)) {
+        if ($this->user1s->removeElement($elefe)) {
             // set the owning side to null (unless already changed)
             if ($elefe->getPromo() === $this) {
                 $elefe->setPromo(null);

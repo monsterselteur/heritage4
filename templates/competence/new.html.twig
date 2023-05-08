@@ -1,11 +1,19 @@
 {% extends 'base.html.twig' %}
-
+{% block stylesheets %}    <link rel="stylesheet" href="{{ asset('CSS/StyleNew.css') }}"> {% endblock %}
 {% block title %}New Competence{% endblock %}
 
 {% block body %}
-    <h1>Create new Competence</h1>
 
-    {{ include('competence/_form.html.twig') }}
 
-    <a href="{{app.request.headers.get('referer') }}">back to list</a>
+    <h1 class="text-center">Créer une nouvelle compétence</h1>
+<div class="formAll">
+    {{ form_start(form) }}
+    {{ form_row(form.nom) }}
+    {{ form_row(form.groupeCompetence, {'attr': {'class': 'custom-select'}}) }}
+    <div class="form-group">
+        <button class="btn btn-primary">{{ button_label|default('Save') }}</button>
+    </div>
+    {{ form_end(form) }}
+    <a href="{{app.request.headers.get('referer') }}">Retour</a>
+</div>
 {% endblock %}

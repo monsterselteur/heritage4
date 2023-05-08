@@ -1,11 +1,19 @@
 {% extends 'base.html.twig' %}
-
-{% block title %}New GroupeCompetence{% endblock %}
+{% block stylesheets %}    <link rel="stylesheet" href="{{ asset('CSS/StyleNew.css') }}"> {% endblock %}
+{% block title %}Nouveau groupe compétences{% endblock %}
 
 {% block body %}
-    <h1>Create new GroupeCompetence</h1>
 
-    {{ include('groupe_competence/_form.html.twig') }}
+    <h1 class="text-center">Créer un nouveau groupe de compétences</h1>
+    <div class="formAll">
+        {{ form_start(form) }}
+        {{ form_row(form.nom) }}
+        {{ form_row(form.portefeuille, {'attr': {'class': 'custom-select'}}) }}
+        <div class="form-group">
+            <button class="btn btn-primary">{{ button_label|default('Save') }}</button>
+        </div>
+        {{ form_end(form) }}
+        <a href="{{app.request.headers.get('referer') }}">Retour</a>
+    </div>
 
-    <a href="{{ app.request.headers.get('referer')  }}">back </a>
 {% endblock %}

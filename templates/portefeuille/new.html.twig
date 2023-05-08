@@ -1,11 +1,17 @@
 {% extends 'base.html.twig' %}
-
-{% block title %}New Portefeuille{% endblock %}
+{% block stylesheets %}    <link rel="stylesheet" href="{{ asset('CSS/StyleNew.css') }}"> {% endblock %}
+{% block title %}Nouveau Portefeuille{% endblock %}
 
 {% block body %}
-    <h1>Create new Portefeuille</h1>
+    <h1 class="text-center">Créer un nouveau Portefeuille</h1>
 
-    {{ include('portefeuille/_form.html.twig') }}
+    <div class="formAll">
+        {{ form_start(form) }}
 
-    <a href="{{ app.request.headers.get('referer')  }}">back </a>
+        <div class="form-group">
+            <button class="btn btn-primary">{{ button_label|default('Save') }}</button>
+        </div>
+        {{ form_end(form) }}
+        <a href="{{app.request.headers.get('referer') }}">Retour</a>
+    </div>
 {% endblock %}

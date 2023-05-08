@@ -12,6 +12,7 @@
                 <th>Nom</th>
                 <th>Description</th>
                 <th>Type</th>
+                <th>Competence</th>
                 <th>actions</th>
             </tr>
         </thead>
@@ -22,6 +23,7 @@
                 <td>{{ activite.nom }}</td>
                 <td>{{ activite.description }}</td>
                 <td>{{ activite.type }}</td>
+                <td>{{ activite.competence }}</td>
                 <td>
                     <a href="{{ path('app_activite_show', {'id': activite.id}) }}">show</a>
                     <a href="{{ path('app_activite_edit', {'id': activite.id}) }}">edit</a>

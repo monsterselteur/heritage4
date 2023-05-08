@@ -32,12 +32,12 @@ class Eleve1Type extends AbstractType
                 'second_options' => ['label' => 'Confirm Password']
             ])
             ->add('option', TextType::class)
+
+            ->add('promo')
+            ->add('portefeuille')
             ->add('submit', SubmitType::class, [
                 'label' => 'Enregistrer',
             ])
-            ->add('promo')
-            ->add('portefeuille')
-
         ;
     }
 

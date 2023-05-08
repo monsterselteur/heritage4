@@ -30,8 +30,8 @@ class ProfType extends AbstractType
             ])
             ->add('password', RepeatedType::class, [
                 'type' => PasswordType::class,
-                'first_options' => ['label' => 'Password'],
-                'second_options' => ['label' => 'Confirm Password']
+                'first_options' => ['label' => 'Mot de passe'],
+                'second_options' => ['label' => 'Confirmez votre Mot de Passe']
             ])
             ->add('submit', SubmitType::class, [
                 'label' => 'Enregistrer',

@@ -2,7 +2,6 @@
 
 namespace App\Controller;
 
-use App\Entity\Prof;
 use App\Entity\User1;
 use App\Form\ProfType;
 use App\Repository\ProfRepository;

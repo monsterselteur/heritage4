@@ -1,13 +1,21 @@
 {% extends 'base.html.twig' %}
-
-{% block title %}Edit Situation{% endblock %}
+{% block stylesheets %}    <link rel="stylesheet" href="{{ asset('CSS/StyleNew.css') }}"> {% endblock %}
+{% block title %}Edit une Situation{% endblock %}
 
 {% block body %}
-    <h1>Edit Situation</h1>
 
-    {{ include('situation/_form.html.twig', {'button_label': 'Update'}) }}
+    <h1 class="text-center">Créer une nouvelle situation</h1>
+    <div class="formAll">
+        <div class="button-container">
+            {{ include('situation/_form.html.twig', {'button_label': 'Update'}) }}
+            <a href="{{ app.request.headers.get('referer') }}" class="return-btn">Retour</a>
+            {{ include('situation/_delete_form.html.twig') }}
+        </div>
+    </div>
 
-    <a href="{{ app.request.headers.get('referer') }}">back</a>
 
-    {{ include('situation/_delete_form.html.twig') }}
+
+
+
+
 {% endblock %}

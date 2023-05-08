@@ -1,13 +1,14 @@
 {% extends 'base.html.twig' %}
-
+{% block stylesheets %}    <link rel="stylesheet" href="{{ asset('CSS/StyleNew.css') }}"> {% endblock %}
 {% block title %}Edit Eleve{% endblock %}
 
 {% block body %}
-    <h1>Edit Eleve</h1>
-
-    {{ include('eleve/_form.html.twig', {'button_label': 'Update'}) }}
-
-    <a href="{{ app.request.headers.get('referer') }}">back </a>
-
-    {{ include('eleve/_delete_form.html.twig') }}
+    <h1 class="text-center">Edit un nouvelle éleve</h1>
+    <div class="formAll">
+        <div class="button-container">
+            {{ include('eleve/_form.html.twig', {'button_label': 'Update'}) }}
+            <a href="{{ app.request.headers.get('referer') }}" class="return-btn">Retour</a>
+            {{ include('eleve/_delete_form.html.twig') }}
+        </div>
+    </div>
 {% endblock %}

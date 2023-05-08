@@ -15,6 +15,7 @@ class CompetenceType extends AbstractType
             ->add('nom')
             ->add('groupeCompetence')
         ;
+
     }
 
     public function configureOptions(OptionsResolver $resolver): void

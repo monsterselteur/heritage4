@@ -39,15 +39,9 @@ class Situation
      */
     private $activites;
 
-    /**
-     * @ORM\ManyToMany(targetEntity=Competence::class, inversedBy="situations")
-     */
-    private $competences;
-
     public function __construct()
     {
         $this->activites = new ArrayCollection();
-        $this->competences = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -121,27 +115,10 @@ class Situation
         return $this;
     }
 
-    /**
-     * @return Collection<int, Competence>
-     */
-    public function getCompetences(): Collection
+    public function __toString()
     {
-        return $this->competences;
+        return $this->getNom();
     }
 
-    public function addCompetence(Competence $competence): self
-    {
-        if (!$this->competences->contains($competence)) {
-            $this->competences[] = $competence;
-        }
 
-        return $this;
-    }
-
-    public function removeCompetence(Competence $competence): self
-    {
-        $this->competences->removeElement($competence);
-
-        return $this;
-    }
 }

@@ -21,7 +21,7 @@
                 <td>{{ prof.id }}</td>
                 <td>{{ prof.nom }}</td>
                 <td>{{ prof.prenom }}</td>
-                <td>{{ prof.date ? prof.date|date('Y-m-d') : '' }}</td>
+                <td>{{ prof.dateDeNaissance ? prof.dateDeNaissance|date('Y-m-d') : '' }}</td>
                 <td>
                     <a href="{{ path('app_prof_show', {'id': prof.id}) }}">show</a>
                     <a href="{{ path('app_prof_edit', {'id': prof.id}) }}">edit</a>

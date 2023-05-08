@@ -1,13 +1,17 @@
+
 <!DOCTYPE html>
 <html>
     <head>
         <meta charset="UTF-8">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
         <title>{% block title %}Welcome!{% endblock %}</title>
+
+
+
         <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>">
         {# Run `composer require symfony/webpack-encore-bundle` to start using Symfony UX #}
         {% block stylesheets %}
-            {{ encore_entry_link_tags('app') }}
+            <link rel="stylesheet" href="{{ asset('CSS/style.css') }}">
         {% endblock %}
 
         {% block javascripts %}
@@ -15,6 +19,63 @@
         {% endblock %}
     </head>
     <body>
-        {% block body %}{% endblock %}
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href={{ path('app_accueil') }}>Portefeuille de competences</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+            <ul class="navbar-nav">
+
+                {% if is_granted('ROLE_ADMIN') %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ path('app_prof_new') }}">Créer un professeur</a>
+                    </li>
+                    <li>
+                        <a class="nav-link" href="{{ path('app_eleve_new') }}">Créer un eleve</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ path('app_profil_index', {'id': app.user.id}) }}"><img src="{{ asset('img/kisspng-user-profile-computer-icons-login-clip-art-profile-picture-icon-5b49de2f816d32.9226305815315676635301.png') }}" alt="Symfony!"/></a>
+                    </li>
+                {% endif %}
+
+                {% if is_granted('ROLE_USER') %}
+                    <li class="nav-item">
+                        <a class="nav-link" style="color: black" href="{{ path('app_situation_new') }}">Nouvelle situation</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ path('app_eleve_edit',{'id': app.user.id}) }}"><img src="{{ asset('img/kisspng-user-profile-computer-icons-login-clip-art-profile-picture-icon-5b49de2f816d32.9226305815315676635301.png') }}" alt="Symfony!"/></a>
+                    </li>
+                {% endif %}
+                {% if is_granted('ROLE_PROF') %}
+                    <li class="nav-item">
+                        <a class="nav-link" style="color: black" href="{{ path('app_promo_index') }}">Promo</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ path('app_prof_edit',{'id': app.user.id}) }}"><img src="{{ asset('img/kisspng-user-profile-computer-icons-login-clip-art-profile-picture-icon-5b49de2f816d32.9226305815315676635301.png') }}" alt="Symfony!"/></a>
+                    </li>
+                {% endif %}
+
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ path('app_logout') }}"><img src="{{ asset('img/kisspng-computer-icons-login-clip-art-exit-5ac7710254b211.5316835815230200343469.png') }}" alt="Symfony!"/></a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+        {% block body %}
+
+        {% endblock %}
+
+
+    <footer class="footer fixed-bottom" style="background-color: #F8F9FA;">
+        <div class="container-footer">
+            <span class="text-muted">Portefeuille de Compétence - 2023</span>
+
+        </div>
+    </footer>
+
+
+
     </body>
 </html>

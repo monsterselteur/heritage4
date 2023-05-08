@@ -22,7 +22,7 @@
                 <td>{{ eleve.id }}</td>
                 <td>{{ eleve.nom }}</td>
                 <td>{{ eleve.prenom }}</td>
-                <td>{{ eleve.date ? eleve.date|date('Y-m-d') : '' }}</td>
+                <td>{{ eleve.dateDeNaissance ? eleve.dateDeNaissance|date('Y-m-d') : '' }}</td>
                 <td>{{ eleve.option }}</td>
                 <td>
                     <a href="{{ path('app_eleve_show', {'id': eleve.id}) }}">show</a>

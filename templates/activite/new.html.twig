@@ -1,11 +1,22 @@
 {% extends 'base.html.twig' %}
-
-{% block title %}New Activite{% endblock %}
+{% block stylesheets %}    <link rel="stylesheet" href="{{ asset('CSS/StyleNew.css') }}"> {% endblock %}
+{% block title %}Nouvelle Activité{% endblock %}
 
 {% block body %}
-    <h1>Create new Activite</h1>
 
-    {{ include('activite/_form.html.twig') }}
+    <h1 class="text-center">Créer une nouvelle activité</h1>
 
-    <a href="{{ app.request.headers.get('referer')  }}">back to list</a>
+    <div class="formAll">
+        {{ form_start(form) }}
+        {{ form_row(form.nom) }}
+        {{ form_row(form.description) }}
+        {{ form_row(form.type) }}
+        {{ form_row(form.situation, {'attr': {'class': 'custom-select'}}) }}
+        {{ form_row(form.competence, {'attr': {'class': 'custom-select'}}) }}
+        <div class="form-group">
+            <button class="btn btn-primary">{{ button_label|default('Save') }}</button>
+        </div>
+        {{ form_end(form) }}
+        <a href="{{app.request.headers.get('referer') }}">Retour</a>
+    </div>
 {% endblock %}

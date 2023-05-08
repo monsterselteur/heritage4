@@ -1,11 +1,25 @@
 {% extends 'base.html.twig' %}
-
-{% block title %}New Eleve{% endblock %}
+{% block stylesheets %}    <link rel="stylesheet" href="{{ asset('CSS/StyleNew.css') }}"> {% endblock %}
+{% block title %}Créer nouvelle Eleve{% endblock %}
 
 {% block body %}
-    <h1>Create new Eleve</h1>
+    <h1 class="text-center">Créer un nouvelle Eleve</h1>
 
-    {{ include('eleve/_form.html.twig') }}
+    <div class="formAll">
+        {{ form_start(form) }}
+        {{ form_row(form.email) }}
+        {{ form_row(form.prenom) }}
+        {{ form_row(form.nom) }}
+        {{ form_row(form.dateDeNaissance) }}
+        {{ form_row(form.password) }}
+        {{ form_row(form.option) }}
+        {{ form_row(form.promo, {'attr': {'class': 'custom-select'}}) }}
+        {{ form_row(form.portefeuille, {'attr': {'class': 'custom-select'}}) }}
+        <div class="form-group">
+            {{ form_widget(form.submit, {'attr': {'class': 'btn btn-primary'}}) }}
+        </div>
+        {{ form_end(form) }}
+        <a href="{{ app.request.headers.get('referer') }}">back</a>
+    </div>
 
-    <a href="{{ app.request.headers.get('referer')  }}">back </a>
 {% endblock %}

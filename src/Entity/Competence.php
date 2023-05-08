@@ -25,18 +25,25 @@ class Competence
     private $nom;
 
     /**
+     * @ORM\Column(type="boolean")
+     */
+    private $valide = false;
+
+
+    /**
      * @ORM\ManyToOne(targetEntity=GroupeCompetence::class, inversedBy="competences")
      */
     private $groupeCompetence;
 
     /**
-     * @ORM\ManyToMany(targetEntity=Situation::class, mappedBy="competences")
+     * @ORM\OneToMany(targetEntity=Activite::class, mappedBy="competence")
      */
-    private $situations;
+    private $activites;
+
 
     public function __construct()
     {
-        $this->situations = new ArrayCollection();
+        $this->activites = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -67,6 +74,15 @@ class Competence
 
         return $this;
     }
+    public function getValide()
+    {
+        return $this->valide;
+    }
+
+    public function setValide($valide): void
+    {
+        $this->valide = $valide;
+    }
 
     public function __toString()
     {
@@ -74,31 +90,33 @@ class Competence
     }
 
     /**
-     * @return Collection<int, Situation>
+     * @return Collection<int, Activite>
      */
-    public function getSituations(): Collection
+    public function getActivites(): Collection
     {
-        return $this->situations;
+        return $this->activites;
     }
 
-    public function addSituation(Situation $situation): self
+    public function addActivite(Activite $activite): self
     {
-        if (!$this->situations->contains($situation)) {
-            $this->situations[] = $situation;
-            $situation->addCompetence($this);
+        if (!$this->activites->contains($activite)) {
+            $this->activites[] = $activite;
+            $activite->setCompetence($this);
         }
 
         return $this;
     }
 
-    public function removeSituation(Situation $situation): self
+    public function removeActivite(Activite $activite): self
     {
-        if ($this->situations->removeElement($situation)) {
-            $situation->removeCompetence($this);
+        if ($this->activites->removeElement($activite)) {
+            // set the owning side to null (unless already changed)
+            if ($activite->getCompetence() === $this) {
+                $activite->setCompetence(null);
+            }
         }
 
         return $this;
     }
-
 
 }

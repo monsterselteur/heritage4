@@ -142,3 +142,21 @@ class PromoController extends AbstractController
                 $this->getDoctrine()->getManager()->flush();
             }
         }
+
+        $users = $eleveRepository->findAll();
+        $eleve = array();
+        foreach ($users as $eleveItem) {
+            if ($eleveItem->getPromo() != null) {
+                if ($eleveItem->getPromo()->getId() == $id) {
+                    $eleve[] = $eleveItem;
+                }
+            }
+        }
+
+        return $this->render('promo/supp_user.html.twig', [
+            'promo' => $promo,
+            'eleve'=> $eleve
+        ]);
+    }
+
+}

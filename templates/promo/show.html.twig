@@ -19,12 +19,18 @@
                 <th>Date</th>
                 <td>{{ promo.date }}</td>
             </tr>
+            <th>eleves</th>
+        {% for j in promo.eleves %}
+            <td>{{ j.nom }} {{ j.prenom }}</td>
+        {% endfor %}
         </tbody>
     </table>
 
     <a href="{{ app.request.headers.get('referer')  }}">back </a>
-
+    {% if is_granted('ROLE_ADMIN') %}
     <a href="{{ path('app_promo_edit', {'id': promo.id}) }}">edit</a>
-
+        <a href="{{ path('app_promo_addusertopromo', {'id': promo.id}) }}">Ajouter un élève</a>
+        <a href="{{ path('app_promo_suppusertopromo', {'id': promo.id}) }}">enlever un élève</a>
+    {% endif %}
     {{ include('promo/_delete_form.html.twig') }}
 {% endblock %}

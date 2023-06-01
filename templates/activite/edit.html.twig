@@ -1,10 +1,10 @@
 {% block stylesheets %}    <link rel="stylesheet" href="{{ asset('CSS/StyleNew.css') }}"> {% endblock %}
 {% extends 'base.html.twig' %}
 
-{% block title %}Edit Activite{% endblock %}
+{% block title %}Modifier Activite{% endblock %}
 
 {% block body %}
-    <h1 class="text-center">Edit une nouvelle Activite</h1>
+    <h1 class="text-center">Modifier une Activité</h1>
     <div class="formAll">
         <div class="button-container">
             {{ include('activite/_form.html.twig', {'button_label': 'Update'}) }}

@@ -26,11 +26,11 @@
         </tbody>
     </table>
 
-    <a href="{{ app.request.headers.get('referer')  }}">back </a>
+    <a href="{{ app.request.headers.get('referer')  }}">Retour </a>
     {% if is_granted('ROLE_ADMIN') %}
-    <a href="{{ path('app_promo_edit', {'id': promo.id}) }}">edit</a>
+    <a href="{{ path('app_promo_edit', {'id': promo.id}) }}">Modifier</a>
         <a href="{{ path('app_promo_addusertopromo', {'id': promo.id}) }}">Ajouter un élève</a>
-        <a href="{{ path('app_promo_suppusertopromo', {'id': promo.id}) }}">enlever un élève</a>
+        <a href="{{ path('app_promo_suppusertopromo', {'id': promo.id}) }}">Enlever un élève</a>
     {% endif %}
     {{ include('promo/_delete_form.html.twig') }}
 {% endblock %}

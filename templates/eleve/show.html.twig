@@ -30,9 +30,9 @@
         </tbody>
     </table>
 
-    <a href="{{ app.request.headers.get('referer')  }}">back </a>
+    <a href="{{ app.request.headers.get('referer')  }}">Retour </a>
 
-    <a href="{{ path('app_eleve_edit', {'id': eleve.id}) }}">edit</a>
+    <a href="{{ path('app_eleve_edit', {'id': eleve.id}) }}">Modifier</a>
 
     {{ include('eleve/_delete_form.html.twig') }}
 {% endblock %}

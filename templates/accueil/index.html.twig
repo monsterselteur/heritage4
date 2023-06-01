@@ -53,8 +53,13 @@ margin-bottom: 2rem;">
             {% endif %}
             <td>
 
+                {%if 'ROLE_USER' in i.roles %}
                 <a href="{{ path('app_eleve_show', {'id': i.id}) }}">Voir</a>
                 <a href="{{ path('app_eleve_edit', {'id': i.id}) }}">Modifer</a>
+                {% else %}
+                    <a href="{{ path('app_prof_show', {'id': i.id}) }}">Voir</a>
+                    <a href="{{ path('app_prof_edit', {'id': i.id}) }}">Modifer</a>
+                {% endif %}
             </td>
         </tr>
     {% else %}
@@ -86,7 +91,6 @@ margin-bottom: 2rem;">
                 <td>{{ i.option }}</td>
                 <td>
                     <a href="{{ path('app_eleve_show', {'id': i.id}) }}">Voir</a>
-                    <a href="{{ path('app_eleve_edit', {'id': i.id}) }}">Modifer</a>
                 </td>
             </tr>
         {% else %}

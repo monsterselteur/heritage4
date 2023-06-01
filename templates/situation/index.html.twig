@@ -23,17 +23,17 @@
                 <td>{{ situation.lieu }}</td>
                 <td>{{ situation.date ? situation.date|date('Y-m-d') : '' }}</td>
                 <td>
-                    <a href="{{ path('app_situation_show', {'id': situation.id}) }}">show</a>
-                    <a href="{{ path('app_situation_edit', {'id': situation.id}) }}">edit</a>
+                    <a href="{{ path('app_situation_show', {'id': situation.id}) }}">Voir</a>
+                    <a href="{{ path('app_situation_edit', {'id': situation.id}) }}">Modifier</a>
                 </td>
             </tr>
         {% else %}
             <tr>
-                <td colspan="5">no records found</td>
+                <td colspan="5">pas d'enregistements trouvé</td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
 
-    <a href="{{ path('app_situation_new') }}">Create new</a>
+    <a href="{{ path('app_situation_new') }}">Créer une nouvelle situation</a>
 {% endblock %}

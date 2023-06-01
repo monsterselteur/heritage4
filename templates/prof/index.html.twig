@@ -23,17 +23,17 @@
                 <td>{{ prof.prenom }}</td>
                 <td>{{ prof.dateDeNaissance ? prof.dateDeNaissance|date('Y-m-d') : '' }}</td>
                 <td>
-                    <a href="{{ path('app_prof_show', {'id': prof.id}) }}">show</a>
-                    <a href="{{ path('app_prof_edit', {'id': prof.id}) }}">edit</a>
+                    <a href="{{ path('app_prof_show', {'id': prof.id}) }}">Voir</a>
+                    <a href="{{ path('app_prof_edit', {'id': prof.id}) }}">Modifier</a>
                 </td>
             </tr>
         {% else %}
             <tr>
-                <td colspan="5">no records found</td>
+                <td colspan="5">pas d'enregistrements trouvé</td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
 
-    <a href="{{ path('app_prof_new') }}">Create new</a>
+    <a href="{{ path('app_prof_new') }}">Créer un nouveau Prof</a>
 {% endblock %}

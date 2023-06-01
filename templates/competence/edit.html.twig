@@ -1,10 +1,10 @@
 {% block stylesheets %}    <link rel="stylesheet" href="{{ asset('CSS/StyleNew.css') }}"> {% endblock %}
 {% extends 'base.html.twig' %}
 
-{% block title %}Edit Competence{% endblock %}
+{% block title %}Modifier Competence{% endblock %}
 
 {% block body %}
-    <h1 class="text-center">Edit une nouvelle Competence</h1>
+    <h1 class="text-center">Modifier Competence</h1>
     <div class="formAll">
         <div class="button-container">
             {{ include('competence/_form.html.twig', {'button_label': 'Update'}) }}

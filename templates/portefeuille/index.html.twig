@@ -17,17 +17,17 @@
             <tr>
                 <td>{{ portefeuille.id }}</td>
                 <td>
-                    <a href="{{ path('app_portefeuille_show', {'id': portefeuille.id}) }}">show</a>
-                    <a href="{{ path('app_portefeuille_edit', {'id': portefeuille.id}) }}">edit</a>
+                    <a href="{{ path('app_portefeuille_show', {'id': portefeuille.id}) }}">Voir</a>
+                    <a href="{{ path('app_portefeuille_edit', {'id': portefeuille.id}) }}">Modifier</a>
                 </td>
             </tr>
         {% else %}
             <tr>
-                <td colspan="2">no records found</td>
+                <td colspan="2">pas d'enregistrements trouvé</td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
 
-    <a href="{{ path('app_portefeuille_new') }}">Create new</a>
+    <a href="{{ path('app_portefeuille_new') }}">Créer un nouveau portefeuille</a>
 {% endblock %}

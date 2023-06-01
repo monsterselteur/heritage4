@@ -1,13 +1,13 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Inscription{% endblock %}
+{% block title %}Inscription élève{% endblock %}
    {% block stylesheets %}    <link rel="stylesheet" href="{{ asset('CSS/StyleNew.css') }}"> {% endblock %}
 
 {% block body %}
 
 
     <div class="login-card mt-2" >
-    <h1 class="text-center">Créer un nouvelle Eleve</h1>
+    <h1 class="text-center">Créer un nouvel Eleve</h1>
 
     <div class="formAll">
         {{ form_start(form) }}
@@ -23,6 +23,6 @@
             {{ form_widget(form.submit, {'attr': {'class': 'btn btn-primary'}}) }}
         </div>
         {{ form_end(form) }}
-        <a href="{{ app.request.headers.get('referer') }}">back</a>
+        <a href="{{ app.request.headers.get('referer') }}">Retour</a>
     </div>
 {% endblock %}

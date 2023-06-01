@@ -26,7 +26,7 @@
         </tbody>
     </table>
 
-    <a href="{{ path('app_situation_edit', {'id': situation.id}) }}">modifier</a>
+    <a href="{{ path('app_situation_edit', {'id': situation.id}) }}">Modifier</a>
 
     {{ include('situation/_delete_form.html.twig') }}
 
@@ -58,5 +58,5 @@
         </tbody>
     </table>
 
-    <a href="{{ app.request.headers.get('referer') }}" class="btn btn-primary">retour</a>
+    <a href="{{ app.request.headers.get('referer') }}" class="btn btn-primary">Retour</a>
 {% endblock %}

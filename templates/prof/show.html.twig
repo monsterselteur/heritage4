@@ -26,9 +26,9 @@
         </tbody>
     </table>
 
-    <a href="{{ app.request.headers.get('referer')  }}">back </a>
+    <a href="{{ app.request.headers.get('referer')  }}">Retour</a>
 
-    <a href="{{ path('app_prof_edit', {'id': prof.id}) }}">edit</a>
+    <a href="{{ path('app_prof_edit', {'id': prof.id}) }}">Modifier</a>
 
     {{ include('prof/_delete_form.html.twig') }}
 {% endblock %}

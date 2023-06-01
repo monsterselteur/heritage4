@@ -14,9 +14,9 @@
         </tbody>
     </table>
 
-    <a href="{{ app.request.headers.get('referer')  }}">back </a>
+    <a href="{{ app.request.headers.get('referer')  }}">Retour</a>
 
-    <a href="{{ path('app_portefeuille_edit', {'id': portefeuille.id}) }}">edit</a>
+    <a href="{{ path('app_portefeuille_edit', {'id': portefeuille.id}) }}">Modifier</a>
 
     {{ include('portefeuille/_delete_form.html.twig') }}
 {% endblock %}

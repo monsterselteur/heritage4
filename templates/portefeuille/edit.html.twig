@@ -1,13 +1,13 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Edit Portefeuille{% endblock %}
+{% block title %}Modifier Portefeuille{% endblock %}
 
 {% block body %}
-    <h1>Edit Portefeuille</h1>
+    <h1>Modifier Portefeuille</h1>
 
     {{ include('portefeuille/_form.html.twig', {'button_label': 'Update'}) }}
 
-    <a href="{{ path('app_portefeuille_index') }}">back to list</a>
+    <a href="{{ path('app_portefeuille_index') }}">Retour</a>
 
     {{ include('portefeuille/_delete_form.html.twig') }}
 {% endblock %}

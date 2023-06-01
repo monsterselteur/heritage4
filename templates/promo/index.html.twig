@@ -27,9 +27,7 @@
                 </td>
                 <td>
                     <a href="{{ path('app_promo_show', {'id': promo.id}) }}">show</a>
-                    {% if is_granted('ROLE_ADMIN') %}
                     <a href="{{ path('app_promo_edit', {'id': promo.id}) }}">edit</a><br>
-                    {% endif %}
                 </td>
             </tr>
         {% else %}

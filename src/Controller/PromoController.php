@@ -86,9 +86,6 @@ class PromoController extends AbstractController
     public function delete(Request $request, Promo $promo, PromoRepository $promoRepository): Response
     {
         if ($this->isCsrfTokenValid('delete'.$promo->getId(), $request->request->get('_token'))) {
-            foreach ($promo->getEleves() as $eleves){
-                $promo->removeUser1($eleves);
-            }
             $promoRepository->remove($promo, true);
         }
 
@@ -110,11 +107,10 @@ class PromoController extends AbstractController
             $promo->addEleve($user);
             $this->getDoctrine()->getManager()->flush();
         }
-
         $users = $eleveRepository->findAll();
         $eleve = array();
         foreach ($users as $eleveItem) {
-            if (in_array('ROLE_USER', $eleveItem->getRoles()) and $eleveItem->getPromo() != null) {
+            if (in_array('ROLE_USER', $eleveItem->getRoles())and $eleveItem->getPromo() != null) {
                 if ($eleveItem->getPromo()->getId() != $id) {
                     $eleve[] = $eleveItem;
                 }
@@ -129,7 +125,6 @@ class PromoController extends AbstractController
             'eleve'=> $eleve
         ]);
     }
-    
     /**
      * @Route("/{id}/supp-user", name="app_promo_suppusertopromo", methods={"GET", "POST"})
      */

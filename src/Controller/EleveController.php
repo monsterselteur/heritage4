@@ -22,19 +22,8 @@ class EleveController extends AbstractController
      */
     public function index(EleveRepository $eleveRepository): Response
     {
-        $userId = $this->getUser()->getId();
-
-        $users = $eleveRepository->findAll();
-        $eleve = array();
-        foreach ($users as $eleveItem) {
-            if (in_array('ROLE_USER', $eleveItem->getRoles())) {
-                $eleve[] = $eleveItem;
-            }
-        }
-
         return $this->render('eleve/index.html.twig', [
-            'controller_name' => 'AccueilController',
-            'eleves' => $eleve,
+            'eleves' => $eleveRepository->findAll(),
         ]);
     }
 

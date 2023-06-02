@@ -25,8 +25,8 @@
                 <td>{{ eleve.dateDeNaissance ? eleve.dateDeNaissance|date('Y-m-d') : '' }}</td>
                 <td>{{ eleve.option }}</td>
                 <td>
-                    <a href="{{ path('app_eleve_show', {'id': eleve.id}) }}">show</a>
-                    <a href="{{ path('app_eleve_edit', {'id': eleve.id}) }}">edit</a>
+                    <a href="{{ path('app_eleve_show', {'id': eleve.id}) }}">Voir</a>
+                    <a href="{{ path('app_eleve_edit', {'id': eleve.id}) }}">Modifier</a>
                 </td>
             </tr>
         {% else %}
@@ -37,5 +37,5 @@
         </tbody>
     </table>
 
-    <a href="{{ path('app_eleve_new') }}">Créer un nouvel élève</a>
+    <a href="{{ path('registration') }}">Créer un nouvel élève</a>
 {% endblock %}

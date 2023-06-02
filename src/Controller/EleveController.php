@@ -7,12 +7,14 @@ use App\Entity\User1;
 use App\Form\Eleve1Type;
 use App\Repository\EleveRepository;
 use http\Client\Curl\User;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 /**
+ * @IsGranted
  * @Route("/eleve")
  */
 class EleveController extends AbstractController
@@ -28,6 +30,7 @@ class EleveController extends AbstractController
     }
 
     /**
+     * @IsGranted("ROLE_ADMIN")
      * @Route("/new", name="app_eleve_new", methods={"GET", "POST"})
      */
     public function new(Request $request, EleveRepository $eleveRepository): Response
@@ -59,6 +62,7 @@ class EleveController extends AbstractController
     }
 
     /**
+     * @IsGranted("ROLE_ADMIN")
      * @Route("/{id}/edit", name="app_eleve_edit", methods={"GET", "POST"})
      */
     public function edit(Request $request, User1 $eleve, EleveRepository $eleveRepository): Response
@@ -79,6 +83,7 @@ class EleveController extends AbstractController
     }
 
     /**
+     * @IsGranted("ROLE_ADMIN")
      * @Route("/{id}", name="app_eleve_delete", methods={"POST"})
      */
     public function delete(Request $request, User1 $eleve, EleveRepository $eleveRepository): Response

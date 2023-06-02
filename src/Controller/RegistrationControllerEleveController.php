@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\User1;
 use App\Form\Eleve1Type;
 use App\Form\User1Type;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
@@ -20,6 +21,7 @@ class RegistrationControllerEleveController extends AbstractController
     }
 
     /**
+     * @IsGranted
      * @Route("/registration/eleve", name="registration")
      */
     public function index(Request $request)

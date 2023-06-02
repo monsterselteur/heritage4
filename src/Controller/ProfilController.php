@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Repository\EleveRepository;
 use App\Repository\User1Repository;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Security\Core\Security;
@@ -14,6 +15,7 @@ class ProfilController
 {
 
     /**
+     * @IsGranted
      * @Route("/profil", name="app_profil_index")
      */
     public function index(Security $security, User1Repository $user1Repository): Response

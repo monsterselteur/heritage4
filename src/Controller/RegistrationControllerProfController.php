@@ -6,6 +6,7 @@ namespace App\Controller;
 use App\Entity\User1;
 use App\Form\ProfType;
 use App\Form\User1Type;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
@@ -21,6 +22,7 @@ class RegistrationControllerProfController extends AbstractController
     }
 
     /**
+     * @IsGranted
      * @Route("/registration/prof", name="registration1")
      */
     public function index(Request $request)

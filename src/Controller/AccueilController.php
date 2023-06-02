@@ -7,6 +7,7 @@ use App\Repository\CompetenceRepository;
 use App\Repository\EleveRepository;
 use App\Repository\SituationRepository;
 use App\Repository\User1Repository;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -14,6 +15,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class AccueilController extends AbstractController
 {
     /**
+     * @IsGranted
      * @Route("/accueil", name="app_accueil")
      */
     public function index(EleveRepository $eleveRepository, SituationRepository $situationRepository): Response

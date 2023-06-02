@@ -5,12 +5,14 @@ namespace App\Controller;
 use App\Entity\User1;
 use App\Form\ProfType;
 use App\Repository\ProfRepository;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 /**
+ * @IsGranted
  * @Route("/prof")
  */
 class ProfController extends AbstractController
@@ -26,6 +28,7 @@ class ProfController extends AbstractController
     }
 
     /**
+     * @IsGranted("ROLE_ADMIN")
      * @Route("/new", name="app_prof_new", methods={"GET", "POST"})
      */
     public function new(Request $request, ProfRepository $profRepository): Response
@@ -57,6 +60,7 @@ class ProfController extends AbstractController
     }
 
     /**
+     * @IsGranted("ROLE_ADMIN")
      * @Route("/{id}/edit", name="app_prof_edit", methods={"GET", "POST"})
      */
     public function edit(Request $request, User1 $prof, ProfRepository $profRepository): Response
@@ -77,6 +81,7 @@ class ProfController extends AbstractController
     }
 
     /**
+     * @IsGranted("ROLE_ADMIN")
      * @Route("/{id}", name="app_prof_delete", methods={"POST"})
      */
     public function delete(Request $request, User1 $prof, ProfRepository $profRepository): Response

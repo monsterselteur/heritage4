@@ -19,7 +19,7 @@
             {{ form_widget(form.submit, {'attr': {'class': 'btn btn-primary'}}) }}
         </div>
         {{ form_end(form) }}
-        <a href="{{ app.request.headers.get('referer') }}">back</a>
+        <a href="{{ app.request.headers.get('referer') }}">Retour</a>
     </div>
 
 {% endblock %}
